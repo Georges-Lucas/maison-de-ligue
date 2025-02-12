@@ -1,4 +1,5 @@
-![image](./asset/Maison_des_ligues_transparent-.png)
+<img src="./asset/Maison_des_ligues_transparent-.png" alt="Maison des Ligues" width="200"/>
+
 # Intranet – Maison des Ligues
 
 ## Contexte
