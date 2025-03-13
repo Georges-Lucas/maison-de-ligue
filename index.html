@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="">Connexion</a></li>
+                <li><a href="">Déonnexion</a></li>
             </ul>
         </nav>
     </header>
@@ -21,14 +21,14 @@
         <section>
             <h1>Connexion</h1>
             <p>Pour vous connectez à l’intranet, veillez renseigner votre identifiant et mot de passe </p>
-            <form action="" method="get">
-                <label for="">
-                    <input type="email" name="mail" id="">
-                </label>
-                <label for="">
-                    <input type="password" name="mdp" id="">
-                </label>
+            <form action="./static/connection_réussie.html" method="get">
+                <label for="mail">Email :</label>
+                <input type="email" name="mail" id="mail">
+                <label for="mail">Mot de passe :</label>
+                <input type="password" name="mdp" id="mdp">
+                <button type="submit">Connexion</button>
             </form>
+           
         </section>
     </main>
     <footer>
