@@ -4,7 +4,7 @@ html {
 
 body{
     font-size: 1.6rem; /* 16px par défaut pour le texte principal */
-    font-family: sans-serif;
+    font-family: "Playfair Display", serif;
     display: grid;
     grid-template-rows: auto 1fr auto;
     background-color: var(--color-primary-bg);
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd, nav{
     list-style-type: none;
 }
 
-a {
+a, ul, li {
     text-decoration: none;
     color: inherit;
     display: inline-block;
@@ -34,7 +34,7 @@ img{
 }
 
 :root{
-    --color-primary-bg : #383838;
+    --text-color : #000000; 
+    --color-primary-bg : #e2e2e2;
     --color-secondary-bg : #00BBFF;
-    --color-primary-text : #ffffff;
 }
