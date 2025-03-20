@@ -1,5 +1,7 @@
 <img src="./asset/Maison_des_ligues_transparent-.png" alt="Maison des Ligues" width="200"/>
+
 [GitHub Pages](https://georges-lucas.github.io/maison-des-ligue/)
+
 # Intranet – Maison des Ligues
 
 ## Contexte
