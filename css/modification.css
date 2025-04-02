@@ -1,0 +1,39 @@
+@import url(main.css);
+
+figcaption{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60rem;
+
+    h1{
+        text-align: center;
+    }
+
+    form{
+        display: grid;
+        grid-template-rows: 1fr;
+        width: 50rem;
+        margin-top: 2rem;
+    }
+
+    label{
+        text-align: right;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    button{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+        font-size: 2rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        width: fit-content;
+        background-color: var(--color-secondary-bg);
+    }
+}
