@@ -1,5 +1,10 @@
 @import url(main.css);
 
+h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+
 figcaption{
     width: 60rem;
     margin-top: 3rem;
@@ -33,4 +38,12 @@ figcaption>img{
 
 .info_utilisateur img{
     width: 2rem;
+}
+
+.recherche{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
 }
