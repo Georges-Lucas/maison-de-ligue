@@ -2,7 +2,7 @@
 
 [Page déployée](https://georges-lucas.github.io/maison-des-ligue/)
 
-# Intranet – Maison des Ligues
+# Intranet – Maison de Ligue
 
 ## Contexte
 
