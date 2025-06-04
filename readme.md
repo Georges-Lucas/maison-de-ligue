@@ -6,7 +6,7 @@
 
 ## Contexte
 
-Le projet **Intranet – Maison des Ligues** est un projet individuel dont l'objectif est de développer une plateforme interne permettant de faciliter les échanges et interactions entre collaborateurs au sein d'une société en pleine expansion. En tant que développeur Front-End, vous êtes responsable du développement de la partie frontale de cette plateforme, sous forme de prototype graphique.
+Le projet **Intranet – Maison des Ligues** est un projet individuel dont l'objectif est de développer une plateforme interne permettant de faciliter les échanges et interactions entre collaborateurs au sein d'une société en pleine expansion. En ta nt que développeur Front-End, vous êtes responsable du développement de la partie frontale de cette plateforme, sous forme de prototype graphique.
 
 ## Objectif
 
