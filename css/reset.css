@@ -1,0 +1,47 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Aguafina+Script&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+    font-size: 62.5%; /* 1rem = 10px (pour une meilleure gestion des rem) */
+}
+
+body{
+    font: 1.6rem "Caudex", serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--color-primary-bg);
+    color: var(--color-primary-text);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    min-height: 100svh;
+}
+
+h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd, nav{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Abril Fatface", serif;
+}
+
+a, ul, li {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    width: 100%;
+}
+
+img{
+    max-width: 100%;
+    display: inline-block;
+}
+
+
+:root{
+    --text-color : #000000; 
+    --color-primary-bg : #e2e2e2;
+    --color-secondary-bg : #00BBFF;
+}
