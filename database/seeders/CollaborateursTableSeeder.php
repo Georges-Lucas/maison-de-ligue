@@ -16,6 +16,7 @@ class CollaborateursTableSeeder extends Seeder
     {
         DB::table('collaborateurs')->insert([
             [
+                'civilite' => 'Monsieur',
                 'nom' => 'Dupont',
                 'prenom' => 'Jean',
                 'email' => 'jean.dupont@example.com',

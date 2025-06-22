@@ -13,4 +13,6 @@ Route::get('/connect',function(){
     return view('connect');
 })->name('connect');
 
+Route::get('/edit', [AuthController::class, 'edit'])->name('edit');
+
 Route::post('/connect', [AuthController::class, 'login'])->name('connect');

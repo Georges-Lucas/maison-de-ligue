@@ -14,7 +14,7 @@
         <nav>
             <ul>
                 <li><a href="./liste_utilisateur.html">Liste</a></li>
-                <li> <a href="./modification.html"><img src="" alt="PP"></a></li>
+                <li> <a href="{{route('edit')}}"><img src="" alt="PP"></a></li>
                 <li><a href="../index.html">Déconnexion</a></li>
             </ul>
         </nav>
@@ -35,15 +35,15 @@
                         </p>
                         <p>{{ $collaborateur->adresse }}, {{ $collaborateur->ville }}</p>
                         <div>
-                            <img src="../asset/email.png" alt="">
+                            <img src="{{ asset('asset/email.png') }}" alt="">
                             <p>{{ $collaborateur->email }}</p>
                         </div>
                         <div>
-                            <img src="../asset/telephone.png" alt="">
+                            <img src="{{ asset('asset/telephone.png') }}" alt="">
                             <p>{{ $collaborateur->telephone }}</p>
                         </div>
                         <div>
-                            <img src="../asset/gateau-danniversaire.png" alt="">
+                            <img src="{{ asset('asset/gateau-danniversaire.png') }}" alt="">
                             <p>Anniversaire : {{ $collaborateur->date_naissance ? \Carbon\Carbon::parse($collaborateur->date_naissance)->format('d F') : '' }}</p>
                         </div>
                     </div>
