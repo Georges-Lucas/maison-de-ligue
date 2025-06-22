@@ -21,11 +21,21 @@
         <section>
             <h1>Connexion</h1>
             <p>Pour vous connectez à l'intranet, veillez renseigner votre identifiant et mot de passe </p>
-            <form action="./static/connection_réussie.html" method="get">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+            
+            <form action="{{ route('connect')}}" method="post">
+                @csrf
                 <label for="mail">Email :</label>
-                <input type="email" name="mail" id="mail">
+                <input type="email" name="mail" id="mail" required>
                 <label for="mail">Mot de passe :</label>
-                <input type="password" name="mdp" id="mdp">
+                <input type="password" name="mdp" id="mdp" required>
                 <button type="submit">Connexion</button>
             </form>
            
