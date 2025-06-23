@@ -13,9 +13,13 @@
     <header>
         <nav>
             <ul>
-                <li><a href="./liste_utilisateur.html">Liste</a></li>
-                <li> <a href="{{route('edit')}}"><img src="" alt="PP"></a></li>
+                <li><a href="{{ route('liste_utilisateur')}}">Liste</a></li>
+                @if(isset($collaborateur) && $collaborateur->is_admin)
+                    <li><a href="{{ route('store_utilisateur') }}">Inscription</a></li>
+                @endif
+                <li> <a href="{{route('edit')}}"><img src="{{ asset('asset/utilisateur.png') }}" alt=""></a></li>
                 <li><a href="{{ route('logout') }}">Déconnexion</a></li>
+
             </ul>
         </nav>
     </header>

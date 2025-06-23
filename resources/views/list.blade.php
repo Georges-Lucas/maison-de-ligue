@@ -13,22 +13,23 @@
     <header>
         <nav>
             <ul>
-                <li><a href="./liste_utilisateur.html">Liste</a></li>
-                <li> <a href="./modification.html"><img src="" alt="PP"></a></li>
-                <li><a href="../index.html">Déconnexion</a></li>
+                <li><a href="{{ route('liste_utilisateur')}}">Liste</a></li>
+                @if(isset($collaborateurConnecte) && $collaborateurConnecte->is_admin)
+                    <li><a href="{{ route('store_utilisateur') }}">Inscription</a></li>
+                @endif
+                <li> <a href="{{ route('edit') }}"><img src="{{ asset('asset/utilisateur.png') }}" alt=""></a></li>
+                <li><a href="{{ route('logout') }}">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Liste des collaborateurs</h1>
         <div class="recherche">
-            <input type="text">
-            <label for="nom">Rechercher par :
-                <input id="nom" type="search" placeholder="Nom">
-            </label>
-            <label for="categorie">Catégorie :
-                <input type="text" id="categorie">
-            </label>
+            <form method="GET" action="{{ route('liste_utilisateur') }}" class="recherche">
+                <input type="search" name="nom" placeholder="Rechercher collaborateur" value="{{ request('nom') }}">
+                <input type="text" name="categorie" placeholder="Rechercher par rôle" value="{{ request('categorie') }}">
+                <button type="submit">Rechercher</button>
+            </form>
         </div>
         <div class="liste">
             @foreach($collaborateurs as $collaborateur)
@@ -41,7 +42,8 @@
                                     ({{ \Carbon\Carbon::parse($collaborateur->date_naissance)->age }} ans)
                                 @endif
                             </p>
-                            <p>{{ $collaborateur->ville }}, {{ $collaborateur->pays ?? '' }}</p>
+                            <p><strong>Rôle :</strong> {{ $collaborateur->rôle }}</p>
+                            <p>{{ $collaborateur->adresse }}, {{ $collaborateur->ville }}</p>
                             <div>
                                 <img src="{{ asset('asset/email.png') }}" alt="">
                                 <p>{{ $collaborateur->email }}</p>
@@ -56,6 +58,14 @@
                                     {{ $collaborateur->date_naissance ? \Carbon\Carbon::parse($collaborateur->date_naissance)->format('d F') : '' }}
                                 </p>
                             </div>
+                            @if(isset($collaborateurConnecte) && $collaborateurConnecte->is_admin)
+                                <a href="{{ route('edit_collaborateur', ['id' => $collaborateur->id]) }}" class="btn btn-primary">Modifier</a>
+                                <form action="{{ route('delete_collaborateur', ['id' => $collaborateur->id]) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Voulez-vous vraiment supprimer ce collaborateur ?')">Supprimer</button>
+                                </form>
+                            @endif
                         </div>
                     </figcaption>
                 </figure>

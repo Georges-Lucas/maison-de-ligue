@@ -15,12 +15,26 @@ class DatabaseSeeder extends Seeder
     
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $this->call(CollaborateursTableSeeder::class);
+    
+        $adminId = DB::table('collaborateurs')->insertGetId([
+            'nom' => 'Admin',
+            'prenom' => 'Super',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('admin123'),
+            'date_naissance' => '1980-01-01',
+            'telephone' => '0601010101',
+            'photo' => null,
+            'adresse' => '99 avenue de l’Administration',
+            'ville' => 'Paris',
+            'rôle' => 'Administrateur',
+            'is_admin' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('admins')->insert([
+            'collaborateur_id' => $adminId,
+        ]);
     }
 }

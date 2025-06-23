@@ -47,9 +47,6 @@ class AuthController extends Controller
     {
         $collaborateur = \App\Models\Collaborateur::findOrFail(\Session::get('collaborateur_id'));
 
-        if ($request->filled('civilite')) {
-            $collaborateur->civilite = $request->civilite;
-        }
         if ($request->filled('nom')) {
             $collaborateur->nom = $request->nom;
         }
@@ -81,6 +78,6 @@ class AuthController extends Controller
 
         $collaborateur->save();
 
-        return redirect()->route('edit')->with('success', 'Profil mis à jour !');
+        return redirect()->route('edit_collaborateur', ['id' => $collaborateur->id])->with('success', 'Profil mis à jour !');
     }
 }

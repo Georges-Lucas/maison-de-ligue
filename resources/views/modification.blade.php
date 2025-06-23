@@ -28,6 +28,7 @@
                 <h1>Modifier mon profil</h1>
                 <form action="{{ route('update_profil', ['id' => $collaborateur->id]) }}" method="post">
                     @csrf
+                    @method('POST')
                     <label for="nom">Nom :
                         <input id="nom" name="nom" type="text" placeholder="{{ $collaborateur->nom }}">
                     </label>

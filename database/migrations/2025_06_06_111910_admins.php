@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('collaborateur_id'); // clé étrangère vers collaborateurs
-            $table->string('prenom_admin');
-            $table->string('email');
-            $table->string('telephone');
             $table->foreign('collaborateur_id')->references('id')->on('collaborateurs')->onDelete('cascade');
         });
     }
