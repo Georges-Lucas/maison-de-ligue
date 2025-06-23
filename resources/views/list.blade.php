@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/liste.css">
+    <link rel="stylesheet" href="{{Vite::asset('resources/css/liste.css')}}">
 </head>
 <body>
     <header>
@@ -31,69 +31,35 @@
             </label>
         </div>
         <div class="liste">
-            <figure>
-                <figcaption>
-                    <img src="" alt="">
-                    <div class="info_utilisateur">
-                        <p>Joe Joestar (26 ans)</p>
-                        <p>Saint Denis, France</p>
-                        <div>
-                            <img src="../asset/email.png" alt="">
-                            <p>jjoestar@gmail.com</p>
+            @foreach($collaborateurs as $collaborateur)
+                <figure>
+                    <figcaption>
+                        <img src="{{ $collaborateur->photo ? asset($collaborateur->photo) : '' }}" alt="">
+                        <div class="info_utilisateur">
+                            <p>{{ $collaborateur->prenom }} {{ $collaborateur->nom }} 
+                                @if($collaborateur->date_naissance)
+                                    ({{ \Carbon\Carbon::parse($collaborateur->date_naissance)->age }} ans)
+                                @endif
+                            </p>
+                            <p>{{ $collaborateur->ville }}, {{ $collaborateur->pays ?? '' }}</p>
+                            <div>
+                                <img src="{{ asset('asset/email.png') }}" alt="">
+                                <p>{{ $collaborateur->email }}</p>
+                            </div>
+                            <div>
+                                <img src="{{ asset('asset/telephone.png') }}" alt="">
+                                <p>{{ $collaborateur->telephone }}</p>
+                            </div>
+                            <div>
+                                <img src="{{ asset('asset/gateau-danniversaire.png') }}" alt="">
+                                <p>Anniversaire : 
+                                    {{ $collaborateur->date_naissance ? \Carbon\Carbon::parse($collaborateur->date_naissance)->format('d F') : '' }}
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <img src="../asset/telephone.png" alt="">
-                            <p>06-12-34-56-78</p>
-                        </div>
-                        <div>
-                            <img src="../asset/gateau-danniversaire.png" alt="">
-                            <p>Anniversaire : 1 mars</p>
-                        </div>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <figcaption>
-                    <img src="" alt="">
-                    <div class="info_utilisateur">
-                        <p>Joe Joestar (26 ans)</p>
-                        <p>Saint Denis, France</p>
-                        <div>
-                            <img src="../asset/email.png" alt="">
-                            <p>jjoestar@gmail.com</p>
-                        </div>
-                        <div>
-                            <img src="../asset/telephone.png" alt="">
-                            <p>06-12-34-56-78</p>
-                        </div>
-                        <div>
-                            <img src="../asset/gateau-danniversaire.png" alt="">
-                            <p>Anniversaire : 1 mars</p>
-                        </div>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <figcaption>
-                    <img src="" alt="">
-                    <div class="info_utilisateur">
-                        <p>Joe Joestar (26 ans)</p>
-                        <p>Saint Denis, France</p>
-                        <div>
-                            <img src="../asset/email.png" alt="">
-                            <p>jjoestar@gmail.com</p>
-                        </div>
-                        <div>
-                            <img src="../asset/telephone.png" alt="">
-                            <p>06-12-34-56-78</p>
-                        </div>
-                        <div>
-                            <img src="../asset/gateau-danniversaire.png" alt="">
-                            <p>Anniversaire : 1 mars</p>
-                        </div>
-                    </div>
-                </figcaption>
-            </figure>
+                    </figcaption>
+                </figure>
+            @endforeach
         </div>
     </main>
     <footer>

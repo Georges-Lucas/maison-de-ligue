@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="./liste_utilisateur.html">Liste</a></li>
                 <li> <a href="{{route('edit')}}"><img src="" alt="PP"></a></li>
-                <li><a href="../index.html">Déconnexion</a></li>
+                <li><a href="{{ route('logout') }}">Déconnexion</a></li>
             </ul>
         </nav>
     </header>

@@ -30,6 +30,13 @@ class AuthController extends Controller
         }    
         
     }
+
+    public function logout()
+    {
+        Session::forget('collaborateur_id');
+        return redirect('/')->with('success', 'Déconnexion réussie !');
+    }
+
     public function edit()
     {
         $collaborateur = Collaborateur::findOrFail(Session::get('collaborateur_id'));
