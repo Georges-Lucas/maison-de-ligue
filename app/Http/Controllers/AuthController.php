@@ -35,4 +35,45 @@ class AuthController extends Controller
         $collaborateur = Collaborateur::findOrFail(Session::get('collaborateur_id'));
         return view('edit', ['collaborateur' => $collaborateur]);
     }
+
+    public function update(Request $request)
+    {
+        $collaborateur = \App\Models\Collaborateur::findOrFail(\Session::get('collaborateur_id'));
+
+        if ($request->filled('civilite')) {
+            $collaborateur->civilite = $request->civilite;
+        }
+        if ($request->filled('nom')) {
+            $collaborateur->nom = $request->nom;
+        }
+        if ($request->filled('prenom')) {
+            $collaborateur->prenom = $request->prenom;
+        }
+        if ($request->filled('email')) {
+            $collaborateur->email = $request->email;
+        }
+        if ($request->filled('telephone')) {
+            $collaborateur->telephone = $request->telephone;
+        }
+        if ($request->filled('naissance')) {
+            $collaborateur->date_naissance = $request->naissance;
+        }
+        if ($request->filled('adresse')) {
+            $collaborateur->adresse = $request->adresse;
+        }
+        if ($request->filled('ville')) {
+            $collaborateur->ville = $request->ville;
+        }
+        if ($request->filled('photo')) {
+            $collaborateur->photo = $request->photo;
+        }
+
+        if ($request->filled('mdp') && $request->mdp === $request->mdp_c) {
+            $collaborateur->password = bcrypt($request->mdp);
+        }
+
+        $collaborateur->save();
+
+        return redirect()->route('edit')->with('success', 'Profil mis à jour !');
+    }
 }

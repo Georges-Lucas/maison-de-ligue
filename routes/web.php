@@ -16,3 +16,5 @@ Route::get('/connect',function(){
 Route::get('/edit', [AuthController::class, 'edit'])->name('edit');
 
 Route::post('/connect', [AuthController::class, 'login'])->name('connect');
+
+  Route::post('/update-profil', [AuthController::class, 'update'])->name('update_profil');
