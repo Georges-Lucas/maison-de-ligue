@@ -35,11 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ville = $_POST['ville'] !== '' ? $_POST['ville'] : $collaborateur['ville'];
     $adresse = $_POST['adresse'] !== '' ? $_POST['adresse'] : $collaborateur['adresse'];
     $photo = $_POST['photo'] !== '' ? $_POST['photo'] : $collaborateur['photo'];
+    $is_admin = isset($_POST['is_admin']) ? 1 : 0;
 
-    $sql = "UPDATE collaborateurs SET nom=?, prenom=?, email=?, telephone=?, date_naissance=?, ville=?, adresse=?, photo=?" .
+    $sql = "UPDATE collaborateurs SET nom=?, prenom=?, email=?, telephone=?, date_naissance=?, ville=?, adresse=?, photo=?, is_admin=?" .
            (!empty($mdp) ? ", password=?" : "") .
            " WHERE id=?";
-    $params = [$nom, $prenom, $email, $telephone, $naissance, $ville, $adresse, $photo];
+    $params = [$nom, $prenom, $email, $telephone, $naissance, $ville, $adresse, $photo, $is_admin];
     if (!empty($mdp)) {
         $params[] = password_hash($mdp, PASSWORD_DEFAULT);
     }
@@ -108,6 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </label>
                     <label for="photo">URL de la photo :
                         <input id="photo" name="photo" type="text" value="<?= htmlspecialchars($collaborateur['photo'] ?? '') ?>">
+                    </label>
+                    <label for="is_admin">Administrateur :
+                        <input id="is_admin" name="is_admin" type="checkbox" <?= $collaborateur['is_admin'] ? 'checked' : '' ?>>
                     </label>
                     <button type="submit">Modifier le profil</button>
                 </form>
