@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modification</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -58,6 +58,10 @@
                     </label>
                     <label for="photo">URL de la photo :
                         <input id="photo" name="photo" type="text" placeholder="{{ $collaborateur->photo }}">
+                    </label>
+                    <label for="is_admin">
+                        <input id="is_admin" name="is_admin" type="checkbox" value="1" {{ $collaborateur->is_admin ? 'checked' : '' }}>
+                        Administrateur
                     </label>
                     <button type="submit">Modifier le profil</button>
                 </form>

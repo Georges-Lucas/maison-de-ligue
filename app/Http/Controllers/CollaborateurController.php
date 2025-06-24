@@ -71,7 +71,7 @@ class CollaborateurController extends Controller
         if ($request->filled('mdp') && $request->mdp === $request->mdp_c) {
             $collaborateur->password = bcrypt($request->mdp);
         }
-
+        $collaborateur->is_admin = $request->has('is_admin');
         $collaborateur->save();
 
         return redirect()->route('edit_collaborateur', ['id' => $collaborateur->id])->with('success', 'Profil mis à jour !');
