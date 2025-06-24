@@ -2,7 +2,33 @@
 require_once '../model/Controller.inc.php';
 session_start();
 
-$stmt = $pdo->query("SELECT * FROM collaborateurs");
+// Récupération des filtres
+$nom = isset($_GET['nom']) ? trim($_GET['nom']) : '';
+$categorie = isset($_GET['categorie']) ? trim($_GET['categorie']) : '';
+
+// Construction de la requête SQL avec filtres
+$sql = "SELECT * FROM collaborateurs WHERE 1";
+$params = [];
+
+if ($nom !== '') {
+    $sql .= " AND (
+        prenom LIKE ? 
+        OR nom LIKE ? 
+        OR CONCAT(prenom, ' ', nom) LIKE ? 
+        OR CONCAT(nom, ' ', prenom) LIKE ?
+    )";
+    $params[] = "$nom%";
+    $params[] = "$nom%";
+    $params[] = "$nom%";
+    $params[] = "$nom%";
+}
+if ($categorie !== '') {
+    $sql .= " AND rôle LIKE ?";
+    $params[] = "%$categorie%";
+}
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
 $collaborateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -31,10 +57,10 @@ $collaborateurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="recherche">
             <form method="get" action="">
                 <label for="nom">Rechercher par :
-                    <input id="nom" name="nom" type="search" placeholder="Nom">
+                    <input id="nom" name="nom" type="search" placeholder="Nom" value="<?= htmlspecialchars($nom) ?>">
                 </label>
-                <label for="categorie">Catégorie :
-                    <input type="text" id="categorie" name="categorie">
+                <label for="categorie">Rôle :
+                    <input type="text" id="categorie" name="categorie" placeholder="Rôle" value="<?= htmlspecialchars($categorie) ?>">
                 </label>
                 <button type="submit">Rechercher</button>
             </form>
