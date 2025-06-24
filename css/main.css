@@ -33,6 +33,10 @@ nav li{
     border-radius: .5rem;
 }
 
+nav img{
+    width: 2rem;
+    height: 2rem;
+}
 
 /* main */
 button{

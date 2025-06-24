@@ -18,6 +18,9 @@ figcaption{
 figcaption>img{
     width: 15rem;
     height: 15rem;
+    max-width: 15rem;
+    max-height: 15rem;
+    object-fit: cover;
     padding: 2rem;
     border-radius: .5rem;
     place-self: center;
