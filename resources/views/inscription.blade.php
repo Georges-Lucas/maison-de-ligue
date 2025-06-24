@@ -89,5 +89,6 @@
     </main>
     <footer>
     </footer>
+    <script type="module" src="{{ Vite::asset('resources/js/verif.js') }}"></script>
 </body>
 </html>

@@ -39,10 +39,10 @@
                         <input id="email" name="email" type="text" placeholder="{{ $collaborateur->email }}">
                     </label>
                     <label for="mdp">Mot de passe :
-                        <input id="mdp" name="mdp" type="text" placeholder="Nouveau mot de passe">
+                        <input id="mdp" name="mdp" type="password" placeholder="Nouveau mot de passe">
                     </label>
                     <label for="mdp_c">Confirmation :
-                        <input id="mdp_c" name="mdp_c" type="text" placeholder="Confirmer le mot de passe">
+                        <input id="mdp_c" name="mdp_c" type="password" placeholder="Confirmer le mot de passe">
                     </label>
                     <label for="telephone">Téléphone :
                         <input id="telephone" name="telephone" type="text" placeholder="{{ $collaborateur->telephone }}">
@@ -67,5 +67,6 @@
     <footer>
 
     </footer>
+    <script type="module" src="{{ Vite::asset('resources/js/verif.js') }}"></script>
 </body>
 </html>
