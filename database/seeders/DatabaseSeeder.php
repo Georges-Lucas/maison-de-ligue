@@ -32,9 +32,5 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
-        DB::table('admins')->insert([
-            'collaborateur_id' => $adminId,
-        ]);
     }
 }
